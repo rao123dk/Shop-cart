@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head> 
+    <meta charset="UTF-8">
     <title>Welcome to angularApp</title>
-    <style>
-    #delete{ color:red;}
-    #checkout{ color:Blue; }
-    </style>
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body ng-app="myCart">
 <div  ng-controller="myCtrl">
   <table>
     <tr>
-        <th>Product</th>
+        <th>Product(s)</th>
         <th>Quantity</th>
-        <th>Price</th>
+        <th>Price(₹)</th>
+        <th>Action</th>
     </tr>
     <tr ng-repeat="x in products">
         <td>
@@ -29,8 +28,9 @@
         <Button id="delete" ng-click="removeItem($index)">Remove</button>
         </td>
     </tr>
+    
   </table>
-  <div>Total :- {{totalAmount}}</div>
+  <div id="total">Total :- {{totalAmount}}</div>
   <p>{{errortext}}</p>
   <input type="text" placeholder="Eneter product Name" ng-model="Pname"><br/>
   <input type="Number" placeholder="How many" ng-model="Pqty" min="1"><br/>
