@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head> 
+    <title>Welcome to angularApp</title>
+    <style>
+    #delete{ color:red;}
+    #checkout{ color:Blue; }
+    </style>
+</head>
+<body ng-app="myCart">
+<div  ng-controller="myCtrl">
+  <table>
+    <tr>
+        <th>Product</th>
+        <th>Quantity</th>
+        <th>Price</th>
+    </tr>
+    <tr ng-repeat="x in products">
+        <td>
+        {{x.name}}
+        </td>
+        <td>
+        {{x.quantity}}
+        </td>
+        <td> 
+        {{x.price}}
+        </td>
+        <td>
+        <Button id="delete" ng-click="removeItem($index)">Remove</button>
+        </td>
+    </tr>
+  </table>
+  <div>Total :- {{totalAmount}}</div>
+  <p>{{errortext}}</p>
+  <input type="text" placeholder="Eneter product Name" ng-model="Pname"><br/>
+  <input type="Number" placeholder="How many" ng-model="Pqty" min="1"><br/>
+  <input type="text" placeholder="Eneter product price" ng-model="Pprice"><br/>
+  <button ng-click="addItem(Pname,Pprice,Pqty)">Add</button><br/>
+  <button id="checkout" ng-click="checkout()">checkout</button>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="app.js"> </script>
+
+</body>
+</html>
