@@ -20,11 +20,12 @@ app.controller("myCtrl", function($rootScope, $scope,$http) {
                 break;
             }else {
                 $scope.products.push({name:Pname, quantity:Pqty, price:Pprice * Pqty});
+                $scope.totalAmount += Pprice * Pqty;
                 //$rootScope.$broadcast('BOOM!', {price:Pprice * Pqty});
                 break;
             }
         }
-      $scope.totalAmount += Pprice * Pqty;
+      //$scope.totalAmount += Pprice * Pqty;
     }
     $scope.removeItem =function(x){
          $scope.errortext = "";   
