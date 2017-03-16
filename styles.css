@@ -1,11 +1,9 @@
 #delete{ 
 color:red;
 }
-#checkout{
-    color:Blue; 
-}
+
 #total{
-    
+    color:green;
 }
 
 table, th, td {
@@ -14,9 +12,14 @@ table, th, td {
 button.btnsize{
     height:40px;
     width:100px;
+    color:Blue; 
 }
 .resizedTextbox{
     width: 200px;
     height: 20px;
 }
 
+p#error{
+	color: red;
+	
+}

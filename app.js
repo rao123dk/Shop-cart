@@ -41,6 +41,7 @@ app.controller("myCtrl", function($rootScope, $scope,$http) {
         
  // Insert data into mySQL adatbase
  $scope.checkout = function(){
+
      var request = $http({
 					method: "post",
 					url: "insertdata.php",
@@ -59,6 +60,15 @@ app.controller("myCtrl", function($rootScope, $scope,$http) {
                 
 				}
 				)
+ }
+
+ // print the bill
+ $scope.printBill = function(divName){
+  var printContents = document.getElementById(divName).innerHTML;
+  var popupWin = window.open('', '_blank', 'width=300,height=300');
+  popupWin.document.open();
+  popupWin.document.write('<html><head><link rel="stylesheet" type="text/css" href="style.css" /></head><body onload="window.print()">' + printContents + '</body></html>');
+  popupWin.document.close();
  }
  
     

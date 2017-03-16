@@ -14,9 +14,10 @@
       <input type="Number" class="resizedTextbox" placeholder="How many" ng-model="Pqty" min="1"><br/><br/>
       <input type="text" class="resizedTextbox" placeholder="Eneter product price(₹)" ng-model="Pprice"><br/><br/>
           <button class="btnsize" ng-click="addItem(Pname,Pprice,Pqty)">Add</button><br/><br/>
-          <button class="btnsize" id="checkout" ng-click="checkout()">checkout</button>
+          <button class="btnsize" id="checkout" ng-click="checkout()">checkout</button><br/><br/>
+          <button class="btnsize" id="print" ng-click='printBill("item_to_display")'>Print</button>
     </div>
-    <div style="width: 60%; float:right">
+    <div style="width: 60%; float:right" id="item_to_display">
       <table>
         <tr>
             <th>Product(s)</th>
@@ -41,7 +42,7 @@
         
       </table>
       <div id="total">Total :- {{totalAmount}}</div>
-      <p>{{errortext}}</p>
+      <p id="error">{{errortext}}</p>
     </div>
   
 </div>
