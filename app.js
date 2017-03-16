@@ -3,13 +3,14 @@ app.controller("myCtrl", function($rootScope, $scope) {
     $scope.products = [
         {name :"Lenovo K6 Power" ,quantity:2, price:19998}, 
         {name :"Zebronics UMC100B Micro USB ",quantity:1, price:224}, 
-        {name :"node.js in action",quantity:1, price:1200}
+        {name :"node.js in action Book",quantity:1, price:1200}
     ];
     var scope = $rootScope;
     $scope.totalAmount =21422;
     $scope.addItem = function(Pname,Pprice,Pqty){
         $scope.errortext = "";
         if (!$scope.Pname && !$scope.Pprice) {
+            $scope.errortext = "Please Enter something";
              return;
         }
         for(var z in $scope.products){
