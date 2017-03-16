@@ -11,3 +11,12 @@ color:red;
 table, th, td {
    border: 1px solid black;
 }
+button.btnsize{
+    height:40px;
+    width:100px;
+}
+.resizedTextbox{
+    width: 200px;
+    height: 20px;
+}
+

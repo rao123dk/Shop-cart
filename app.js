@@ -1,5 +1,5 @@
 var app = angular.module("myCart", []); 
-app.controller("myCtrl", function($rootScope, $scope) {
+app.controller("myCtrl", function($rootScope, $scope,$http) {
     $scope.products = [
         {name :"Lenovo K6 Power" ,quantity:2, price:19998}, 
         {name :"Zebronics UMC100B Micro USB ",quantity:1, price:224}, 
@@ -38,5 +38,28 @@ app.controller("myCtrl", function($rootScope, $scope) {
     // $scope.addtoTotal = function(Pprice,Pqty){
             // $scope.totalAmount += Pprice * Pqty;
         // }
+        
+ // Insert data into mySQL adatbase
+ $scope.checkout = function(){
+     var request = $http({
+					method: "post",
+					url: "insertdata.php",
+					data: {
+                    billnumber:$scope.billnumber,
+					products:$scope.Pname,
+					quantity:$scope.Pqty,
+                    price:$scope.Pprice
+					},
+					header:{'Content-Type': 'application/x-www-form-urlencoded'}
+				
+				
+				});
+				request.success(function(data){
+				console.log("hello world");
+                
+				}
+				)
+ }
+ 
     
 });

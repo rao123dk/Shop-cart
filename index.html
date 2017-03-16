@@ -7,36 +7,43 @@
 </head>
 <body ng-app="myCart">
 <div  ng-controller="myCtrl">
-  <table>
-    <tr>
-        <th>Product(s)</th>
-        <th>Quantity</th>
-        <th>Price(₹)</th>
-        <th>Action</th>
-    </tr>
-    <tr ng-repeat="x in products">
-        <td>
-        {{x.name}}
-        </td>
-        <td>
-        {{x.quantity}}
-        </td>
-        <td> 
-        {{x.price}}
-        </td>
-        <td>
-        <Button id="delete" ng-click="removeItem($index)">Remove</button>
-        </td>
-    </tr>
-    
-  </table>
-  <div id="total">Total :- {{totalAmount}}</div>
-  <p>{{errortext}}</p>
-  <input type="text" placeholder="Eneter product Name" ng-model="Pname"><br/>
-  <input type="Number" placeholder="How many" ng-model="Pqty" min="1"><br/>
-  <input type="text" placeholder="Eneter product price" ng-model="Pprice"><br/>
-  <button ng-click="addItem(Pname,Pprice,Pqty)">Add</button><br/>
-  <button id="checkout" ng-click="checkout()">checkout</button>
+
+    <div style="width: 40%; float:left">
+      <input type="text" class="resizedTextbox" placeholder="Eneter Bill Number" id="billnumber" ng-model="billnumber" ><br/><br/>
+      <input type="text" class="resizedTextbox" placeholder="Eneter product Name" ng-model="Pname"><br/><br/>
+      <input type="Number" class="resizedTextbox" placeholder="How many" ng-model="Pqty" min="1"><br/><br/>
+      <input type="text" class="resizedTextbox" placeholder="Eneter product price(₹)" ng-model="Pprice"><br/><br/>
+          <button class="btnsize" ng-click="addItem(Pname,Pprice,Pqty)">Add</button><br/><br/>
+          <button class="btnsize" id="checkout" ng-click="checkout()">checkout</button>
+    </div>
+    <div style="width: 60%; float:right">
+      <table>
+        <tr>
+            <th>Product(s)</th>
+            <th>Quantity</th>
+            <th>Price(₹)</th>
+            <th>Action</th>
+        </tr>
+        <tr ng-repeat="x in products">
+            <td>
+            {{x.name}}
+            </td>
+            <td>
+            {{x.quantity}}
+            </td>
+            <td> 
+            {{x.price}}
+            </td>
+            <td>
+            <Button id="delete" ng-click="removeItem($index)">Remove</button>
+            </td>
+        </tr>
+        
+      </table>
+      <div id="total">Total :- {{totalAmount}}</div>
+      <p>{{errortext}}</p>
+    </div>
+  
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 <script src="app.js"> </script>
